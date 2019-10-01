@@ -33,7 +33,7 @@ public class ManageParking {
      * @param capacity 
      */
     public void addressParking(int capacity){
-       ManageParking.capacity = capacity;
+       this.capacity = capacity;
        for(int count = 0; count < capacity; count++){
            ParkingZone newPark = new ParkingZone(count, null);
            parkingZone.add(newPark);
