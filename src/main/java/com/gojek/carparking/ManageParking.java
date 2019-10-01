@@ -39,8 +39,8 @@ public class ManageParking {
            ParkingZone newPark = new ParkingZone(count, null);
            parkingZone.add(newPark);
        }
-        Output("Created a parking lot with "+capacity+" slots");
        
+       Output("Created a parking lot with "+capacity+" slots");  
     }
     
     /**

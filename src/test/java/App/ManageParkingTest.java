@@ -5,6 +5,7 @@
  */
 package App;
 
+import Config.TestConfig;
 import com.gojek.carparking.ManageParking;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -17,22 +18,11 @@ import org.junit.Test;
  *
  * @author arab
  */
-public class ManageParkingTest {
-    private final ByteArrayOutputStream printedContent = new ByteArrayOutputStream();
+public class ManageParkingTest extends TestConfig{
     private final ManageParking manageParking;
    
     public ManageParkingTest() {
         this.manageParking = new ManageParking();
-    }
-
-    @Before
-    public void setUpStreams() {
-	System.setOut(new PrintStream(printedContent));
-    }
-
-    @After
-    public void cleanUpStreams() {
-	System.setOut(null);
     }
     
     @Test
