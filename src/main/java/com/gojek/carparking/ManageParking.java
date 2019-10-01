@@ -8,6 +8,7 @@ package com.gojek.carparking;
 import static Utils.Output.*;
 import java.util.ArrayList;
 import java.util.List;
+import models.Car;
 import models.ParkingZone;
 
 /**
@@ -64,6 +65,57 @@ public class ManageParking {
         
         //else show no car is being parked yet
         Output("All slots are free");
+    }
+
+    /**
+     * Park a car to the parking lot
+     * 
+     * @param car 
+     */
+    public void parkCar(Car car){
+        //check if available slot is there and park
+        if(this.hasSlotsAvaiable()){
+            int slots = 0;
+            for(ParkingZone slot : parkingZone){
+                if(slot.getCar() == null){
+                    parkingZone.get(slots).setCar(car);
+                    Output("Allocated slot number:"+ (slots+1));
+                    return;          
+                }
+                slots++;
+           }
+        }else{
+            Output("Sorry, parking lot is full");
+        }
+    }
+    
+    /**
+     * leave car from n number slot
+     * 
+     * @param slot 
+     */
+    public void leaveCar(int slot){
+        //check if at least a car in parking lot
+        if(this.carParked() > 0){
+           ParkingZone zone = null;
+           
+           //try to find the slot
+            try{
+                zone = parkingZone.get(slot-1);
+            }catch(IndexOutOfBoundsException e){
+                 Output("Invalid slot number : "+(slot)+"");
+                 return;
+            }
+            
+            //only when the car is found free the slot
+           if(zone.getCar() != null){
+               parkingZone.get(slot-1).setCar(null);
+               Output("Slot number "+(slot)+" is free");
+               return;
+           }
+        }
+        
+        Output("No car in Slot number "+(slot)+"");
     }
     
     
