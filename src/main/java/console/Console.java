@@ -15,17 +15,16 @@ import models.Car;
  *
  * @author arab
  */
-public class Console implements Commands{
+public class Console implements Commands, Runnable{
     
     private ManageParking manageParking = new ManageParking();
     private Car car;
-    
+    private String command;
     /**
      * Console always print welcome message and application version
      */
-    public Console(){
-        Output(Configs.WELCOME_MESSAGE+" "+Configs.APP_VERSION+"!");
-        Output("\n");
+    public Console(String command){
+        this.command = command;
     }
     
     
@@ -113,6 +112,11 @@ public class Console implements Commands{
                 break;
             
         }
+    }
+
+    @Override
+    public void run() {
+        this.execute(this.command);
     }
    
 }

@@ -57,7 +57,7 @@ public class ManageParking {
             Output("Slot No. \t\t Registration No \t\t color");
             for(ParkingZone slot : parkingZone){
                 if(slot.getCar() != null){
-                    Output(slot.getAddress()+1+" \t\t\t "+slot.getCar().getRegistation_number()+" \t\t\t"+slot.getCar().getColor());
+                    Output(slot.getAddress()+1+" \t\t\t "+slot.getCar().getRegistation_number()+" \t\t\t\t"+slot.getCar().getColor());
                 }
             }
             return;
