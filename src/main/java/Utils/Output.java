@@ -5,6 +5,8 @@
  */
 package Utils;
 
+import models.Car;
+
 /**
  *
  * @author arab
@@ -17,5 +19,9 @@ public class Output {
     
     static public void Output(int message){
         System.out.println(message);
+    }
+    
+     static public void Output(Car car){
+        System.out.println(car.toString());
     }
 }

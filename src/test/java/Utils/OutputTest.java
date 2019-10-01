@@ -5,9 +5,10 @@
  */
 package Utils;
 
-import static Utils.Output.Output;
+import static Utils.Output.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import models.Car;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
@@ -42,4 +43,14 @@ public class OutputTest {
         assertEquals(3, Integer.parseInt(printedContent.toString().trim()));
     }
     
+     @Test
+    public void carOutput(){
+        final String registation_number = "kha-432-43", color= "white", expectedOutput;
+        expectedOutput = "Regestration Number : "+registation_number + "\n Color : "+color;
+
+        Car car = new Car(registation_number, color);
+        Output(car);
+        assertEquals(expectedOutput, printedContent.toString().trim());
+        
+    }
 }
