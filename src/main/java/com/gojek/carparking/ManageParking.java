@@ -73,6 +73,11 @@ public class ManageParking {
      * @param car 
      */
     public void parkCar(Car car){
+        
+        if(!this.isParkingInit()){
+            return;
+        }
+         
         //check if available slot is there and park
         if(this.hasSlotsAvaiable()){
             int slots = 0;
@@ -95,6 +100,11 @@ public class ManageParking {
      * @param slot 
      */
     public void leaveCar(int slot){
+        
+         if(!this.isParkingInit()){
+            return;
+        }
+        
         //check if at least a car in parking lot
         if(this.carParked() > 0){
            ParkingZone zone = null;
@@ -117,6 +127,77 @@ public class ManageParking {
         
         Output("No car in Slot number "+(slot)+"");
     }
+    
+    /**
+     * Search all the cars with white color and print its registration number
+     */
+    public void getRegOfWhiteCars(){
+        if(!this.isParkingInit()){
+            return;
+        }
+        if(this.carParked() > 0){
+            String regstrations = "";
+            for(ParkingZone slot : parkingZone){
+                String color = slot.getCar().getColor();
+                if(color.toLowerCase().equals("white")){
+                    regstrations += slot.getCar().getRegistation_number()+", ";
+                }                
+            }
+            if (regstrations.endsWith(", ")) {
+                regstrations = regstrations.substring(0, regstrations.length() - 2);
+            }
+            Output(regstrations);
+            return;
+        }
+        
+        Output("White color cars are not found now");
+    }
+    
+    
+    /**
+     * Search all the cars with white color and print its slot address
+     */
+    public void getSlotsOfWhiteCars(){
+        if(!this.isParkingInit()){
+            return;
+        }
+        if(this.carParked() > 0){
+            String regstrations = "";
+            for(ParkingZone slot : parkingZone){
+                String color = slot.getCar().getColor();
+                if(color.toLowerCase().equals("white")){
+                    regstrations += slot.getAddress()+", ";
+                }                
+            }
+            Output(regstrations);
+            return;
+        }
+        
+        Output("White color cars are not found now");
+    }
+    
+    
+     /**
+     * Search all the cars by registration number and print slot address
+     * @param registration
+     */
+    public void getSlotsByReg(String registration){
+        if(!this.isParkingInit()){
+            return;
+        }
+        if(this.carParked() > 0){
+            for(ParkingZone slot : parkingZone){
+                String color = slot.getCar().getColor();
+                if(color.toLowerCase().equals(registration)){
+                    Output(slot.getAddress());
+                    return;
+                }                
+            }
+        }
+        
+        Output("Not found");
+    }
+    
     
     
     /**
