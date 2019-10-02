@@ -9,8 +9,6 @@ import Config.TestConfig;
 import Utils.Helpers;
 import console.Console;
 import java.util.Scanner;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -19,25 +17,28 @@ import org.junit.Test;
  * @author arab
  */
 public class AutometionTest extends TestConfig{
+
     @Test
     public void AppTest(){
+
+        //define test file path
         String testFile = System.getProperty("user.dir")+"/fixtures/file_input.txt";
+        
+        //Read data form file
         Scanner reader = Helpers.readFile(testFile);
-       Console console = new Console();
-        ExecutorService service =  Executors.newFixedThreadPool(50);
         
+        //pass all the command lines loop through console object
+        Console console = new Console();
         while(reader.hasNextLine()){
-            console.execute(reader.nextLine().trim());
-           
-        }
-        if(!service.isShutdown()){
-           service.shutdown();
+            console.execute(reader.nextLine().trim()); 
         }
         
+        //
         assertEquals(this.getExpectedResult(), this.printedContent.toString().trim());
+       
     }
     
-    String getExpectedResult(){
+    private String getExpectedResult(){
         return "Created a parking lot with 6 slots\n" +
                 "\n" +
                 "Allocated slot number:1\n" +

@@ -256,4 +256,9 @@ public class ManageParking {
          
        return true; 
     }
+    
+    public void restParking(){
+        capacity = 0;
+        parkingZone = new ArrayList<ParkingZone>();
+    }
 }

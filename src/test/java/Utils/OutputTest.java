@@ -31,7 +31,7 @@ public class OutputTest extends TestConfig{
     
      @Test
     public void carOutput(){
-        final String registation_number = "kha-432-43", color= "white", expectedOutput;
+        String registation_number = "kha-432-43", color= "white", expectedOutput;
         expectedOutput = "Regestration Number : "+registation_number + "\n Color : "+color;
 
         Car car = new Car(registation_number, color);

@@ -11,8 +11,7 @@ import org.junit.Test;
  */
 
 public class ConsoleTest extends TestConfig{
-    Console console = new Console();
-    
+        
     @Test
     public void executeInvalidCommand(){
         console.execute(" ");
