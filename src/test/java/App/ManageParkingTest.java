@@ -7,11 +7,7 @@ package App;
 
 import Config.TestConfig;
 import com.gojek.carparking.ManageParking;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import org.junit.After;
 import static org.junit.Assert.assertEquals;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -36,7 +32,7 @@ public class ManageParkingTest extends TestConfig{
     public void parkingStatusTest(){
 
         //create parking and again check status
-        String expectedResult = "Please init parking capacity";
+        String expectedResult = "Please create a parking lot";
         this.manageParking.parkingStatus();
         assertEquals(expectedResult, printedContent.toString().trim());
     } 

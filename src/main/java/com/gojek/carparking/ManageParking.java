@@ -129,51 +129,63 @@ public class ManageParking {
     }
     
     /**
-     * Search all the cars with white color and print its registration number
+     * Search all the cars by color and print its registration number
      */
-    public void getRegOfWhiteCars(){
+    public void getRegOfCarsByColor(String colour){
         if(!this.isParkingInit()){
             return;
         }
         if(this.carParked() > 0){
             String regstrations = "";
             for(ParkingZone slot : parkingZone){
-                String color = slot.getCar().getColor();
-                if(color.toLowerCase().equals("white")){
-                    regstrations += slot.getCar().getRegistation_number()+", ";
-                }                
+                if(slot.getCar() != null){
+                    String color = slot.getCar().getColor();
+                    if(color.toLowerCase().equals(colour)){
+                        regstrations += slot.getCar().getRegistation_number()+", ";
+                    }  
+                }          
             }
-            if (regstrations.endsWith(", ")) {
-                regstrations = regstrations.substring(0, regstrations.length() - 2);
+            
+            //remove the last comma from the string
+            if(regstrations.endsWith(", ")){
+               regstrations = regstrations.substring(0, regstrations.length()-2);
             }
             Output(regstrations);
             return;
         }
         
-        Output("White color cars are not found now");
+        Output(colour+" color cars are not found now");
     }
     
     
     /**
-     * Search all the cars with white color and print its slot address
+     * Search all the cars by color and print its slot address
      */
-    public void getSlotsOfWhiteCars(){
+    public void getSlotsOfCarsByColor(String colour){
         if(!this.isParkingInit()){
             return;
         }
         if(this.carParked() > 0){
             String regstrations = "";
             for(ParkingZone slot : parkingZone){
-                String color = slot.getCar().getColor();
-                if(color.toLowerCase().equals("white")){
-                    regstrations += slot.getAddress()+", ";
-                }                
+                if(slot.getCar() != null){
+                    String color = slot.getCar().getColor();
+                    if(color.toLowerCase().equals(colour)){
+                        regstrations += (slot.getAddress()+1)+", ";
+                    }   
+                }
+                             
+            }
+            
+            //remove the last comma from the string
+            if(regstrations.endsWith(", ")){
+               regstrations = regstrations.substring(0, regstrations.length()-2);
             }
             Output(regstrations);
             return;
         }
         
-        Output("White color cars are not found now");
+        Output( colour+" color cars are not found now");
     }
     
     
@@ -187,11 +199,14 @@ public class ManageParking {
         }
         if(this.carParked() > 0){
             for(ParkingZone slot : parkingZone){
-                String color = slot.getCar().getColor();
-                if(color.toLowerCase().equals(registration)){
-                    Output(slot.getAddress());
-                    return;
-                }                
+                if(slot.getCar() != null){
+                    String color = slot.getCar().getRegistation_number();
+                    if(color.toLowerCase().equals(registration.toLowerCase())){
+                        Output(slot.getAddress());
+                        return;
+                    }    
+                }
+                            
             }
         }
         
@@ -235,7 +250,7 @@ public class ManageParking {
      */
     private boolean isParkingInit(){
          if(capacity <= 0){
-            Output("Please init parking capacity");
+            Output("Please create a parking lot");
             return false;
         }
          

@@ -5,7 +5,6 @@
  */
 package console;
 
-import Configs.Configs;
 import static Utils.Output.*;
 import com.gojek.carparking.ManageParking;
 import models.Car;
@@ -39,7 +38,7 @@ public class Console implements Commands, Runnable{
         String command;
         
         try{
-          command = inputs[0];
+          command = inputs[0].trim();
         }catch(ArrayIndexOutOfBoundsException e){
             Output("Invalid command");
             Output("");
@@ -58,14 +57,14 @@ public class Console implements Commands, Runnable{
             case PARK:
                 String registration_number = null, color = null;
                 try{
-                    registration_number = inputs[1];
+                    registration_number = inputs[1].trim();
                 }catch(ArrayIndexOutOfBoundsException e){
                     Output("Registration number is required");
                     return;
                 }  
                 
                 try{
-                    color = inputs[2];
+                    color = inputs[2].trim();
                 }catch(ArrayIndexOutOfBoundsException e){
                      Output("Car Color is required");
                      return;
@@ -87,17 +86,27 @@ public class Console implements Commands, Runnable{
                 manageParking.parkingStatus();
                 Output("");
                 break;
-            case GET_REG_OF_WHITE_CARS:
-                manageParking.getRegOfWhiteCars();
+            case GET_REG_OF_CARS_BY_COLOR:
+                 try{
+                    manageParking.getRegOfCarsByColor(inputs[1].trim());
+                }catch(ArrayIndexOutOfBoundsException e){
+                    Output("Car color is required");
+                } 
+              
                 Output("");
                 break;
-            case GET_SLOTS_OF_WHITE_CARS:
-                manageParking.getSlotsOfWhiteCars();
+            case GET_SLOTS_NUMBER_OF_CARS_BY_COLOR:
+                 try{
+                    manageParking.getSlotsOfCarsByColor(inputs[1].trim());
+                }catch(ArrayIndexOutOfBoundsException e){
+                    Output("Car registration number is required");
+                } 
+              
                 Output("");
                 break;
             case GET_SLOTS_BY_REG:
                 try{
-                    manageParking.getSlotsByReg(inputs[1]);
+                    manageParking.getSlotsByReg(inputs[1].trim());
                 }catch(ArrayIndexOutOfBoundsException e){
                     Output("Car registration number is required");
                 } 

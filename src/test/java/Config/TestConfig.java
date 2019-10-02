@@ -11,10 +11,11 @@ import org.junit.Before;
  * @author arab
  */
 public abstract class TestConfig {
-    protected final ByteArrayOutputStream printedContent = new ByteArrayOutputStream();
+    protected ByteArrayOutputStream printedContent;
 
     @Before
     public void setUpStreams() {
+        printedContent = new ByteArrayOutputStream();
 	System.setOut(new PrintStream(printedContent));
     }
 
