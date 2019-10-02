@@ -25,6 +25,8 @@ public class Console implements Commands, Runnable{
     public Console(String command){
         this.command = command;
     }
+
+    public Console() {}
     
     
     /**
@@ -35,17 +37,17 @@ public class Console implements Commands, Runnable{
     public void execute(String cmd){
         car = null;
         String[] inputs = cmd.split(" ");
-        String command;
+        String _command;
         
         try{
-          command = inputs[0].trim();
+          _command = inputs[0].trim();
         }catch(ArrayIndexOutOfBoundsException e){
             Output("Invalid command");
             Output("");
             return;
         }
         
-        switch(command){
+        switch(_command){
             case CREATE_PARKING:
                 try{
                     manageParking.addressParking(Integer.parseInt(inputs[1]));

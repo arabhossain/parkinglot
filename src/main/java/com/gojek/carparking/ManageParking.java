@@ -140,7 +140,7 @@ public class ManageParking {
             for(ParkingZone slot : parkingZone){
                 if(slot.getCar() != null){
                     String color = slot.getCar().getColor();
-                    if(color.toLowerCase().equals(colour)){
+                    if(color.toLowerCase().equals(colour.toLowerCase())){
                         regstrations += slot.getCar().getRegistation_number()+", ";
                     }  
                 }          
@@ -170,7 +170,7 @@ public class ManageParking {
             for(ParkingZone slot : parkingZone){
                 if(slot.getCar() != null){
                     String color = slot.getCar().getColor();
-                    if(color.toLowerCase().equals(colour)){
+                    if(color.toLowerCase().equals(colour.toLowerCase())){
                         regstrations += (slot.getAddress()+1)+", ";
                     }   
                 }
@@ -202,7 +202,7 @@ public class ManageParking {
                 if(slot.getCar() != null){
                     String color = slot.getCar().getRegistation_number();
                     if(color.toLowerCase().equals(registration.toLowerCase())){
-                        Output(slot.getAddress());
+                        Output(slot.getAddress()+1);
                         return;
                     }    
                 }

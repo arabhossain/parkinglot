@@ -23,7 +23,7 @@ public class Helpers {
         Output("Please enter your command.\n");
     }
     
-    public Scanner read(String fileUrl){
+    public static Scanner readFile(String fileUrl){
         
         try {
             File file = new File(fileUrl); 

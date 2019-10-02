@@ -23,4 +23,5 @@ public abstract class TestConfig {
     public void cleanUpStreams() {
 	System.setOut(null);
     }
+    
 }

@@ -22,8 +22,7 @@ public class App {
         Helpers.welcomeMessage();
         
         int coreCount = Runtime.getRuntime().availableProcessors();
-        ExecutorService service = null;
-        service= Executors.newFixedThreadPool(coreCount);
+        ExecutorService service = Executors.newFixedThreadPool(coreCount);
             
         Scanner in = new Scanner(System.in);
         while(true){
