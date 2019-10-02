@@ -24,4 +24,9 @@ public abstract class TestConfig {
 	System.setOut(null);
     }
     
+    public void restStream(){
+        this.cleanUpStreams();
+        this.setUpStreams();
+    }
+    
 }

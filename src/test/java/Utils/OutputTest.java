@@ -38,5 +38,13 @@ public class OutputTest extends TestConfig{
         Output(car);
         assertEquals(expectedOutput, printedContent.toString().trim());
         
+        //clean printed contend
+        this.restStream();
+       
+        //getter setter test
+        car.setColor(color);
+        car.setRegistation_number(registation_number);
+        Output(car);
+        assertEquals(expectedOutput, printedContent.toString().trim());
     }
 }

@@ -118,7 +118,7 @@ public class Console implements Commands, Runnable{
                 System.exit(0);
                 break;
             default:
-                 Output("Invalid command. Please Try again");
+                 Output("Command not found. Please Try again");
                  Output("");
                 break;
             
