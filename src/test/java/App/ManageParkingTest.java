@@ -7,6 +7,7 @@ package App;
 
 import Config.TestConfig;
 import com.gojek.carparking.ManageParking;
+import models.Car;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -28,12 +29,27 @@ public class ManageParkingTest extends TestConfig{
         assertEquals(expectedResult, printedContent.toString().trim());
     }
     
+
+    
     @Test
     public void parkingStatusTest(){
 
-        //create parking and again check status
-        String expectedResult = "Please create a parking lot";
+        //Expected Result
+        String expectedResult = "Slot No. 		 Registration No 		 color\n" +
+                                "1 			 reg-1 				white\n" +
+                                "2 			 reg-2 				black";
+        
+        //create parking lot and park cars
+        this.manageParking.addressParking(2);
+        this.manageParking.parkCar(new Car("reg-1", "white"));
+        this.manageParking.parkCar(new Car("reg-2", "black"));
+        
+        //rest output stream
+        this.restStream();
+        
+        //
         this.manageParking.parkingStatus();
         assertEquals(expectedResult, printedContent.toString().trim());
     } 
+    
 }
