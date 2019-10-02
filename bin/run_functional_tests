@@ -1,0 +1,10 @@
+#!/bin/sh
+cd ..
+if [ -f pom.xml ]; then
+    mvn clean test
+else
+    echo "Your testing is terminated due to pom.xml file not found."
+    exit;
+fi
+
+echo "after test"

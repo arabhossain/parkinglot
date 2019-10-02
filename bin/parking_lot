@@ -1,0 +1,9 @@
+#!/bin/sh
+cd ..
+DIR="target"
+if [ -d "$DIR" ]; then
+ java -jar "$DIR"/CarParking-1.0-SNAPSHOT.jar
+else
+  echo "Please execute setup.sh to build the app with all the dependency!"
+  exit 1
+fi

@@ -1,0 +1,12 @@
+#!/bin/sh
+cd ..
+if [ -f pom.xml ]; then
+    mvn clean install
+else
+    echo "Your installation is terminated due to pom.xml file not found."
+    exit;
+fi
+
+
+
+
