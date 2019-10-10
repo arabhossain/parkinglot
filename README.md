@@ -1,6 +1,8 @@
 # Car Parking 
  **Version 1 . 4 . 2**
 
+<img src="https://travis-ci.com/arabhossain/parkinglot.svg?branch=master" alt="Build Status" />
+
 ## Project Intro
 
 Create parking lot that can hold up to 'n' cars at any given point in time. Each slot is given a number starting at 1 increasing with increasing distance from the entry point in steps of one. I want to create an automated ticketing system that allows my customers to use my parking lot without human intervention. 
