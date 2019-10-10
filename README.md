@@ -62,6 +62,5 @@ Finally to run it please use the shell command as given
 	
 ## Author
 Arab Hossain
-[GitHub]([https://github.com/arabhossain](https://github.com/arabhossain))
 [Facebook](https://www.facebook.com/arabhossain) 
-[LinkedIn]([https://www.linkedin.com/in/arabhossain/](https://www.linkedin.com/in/arabhossain/))
+[LinkedIn](https://www.linkedin.com/in/arabhossain)
