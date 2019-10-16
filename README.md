@@ -54,6 +54,8 @@ Finally to run it please use the shell command as given
 	 - setup
 	 - run_functional_tests
 	 - parking_lot
+- fixtures
+	- file_input.txt
 - source
 	- fixtures
 	- src
