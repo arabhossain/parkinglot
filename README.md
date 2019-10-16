@@ -59,6 +59,7 @@ Finally to run it please use the shell command as given
 	- fixtures
 	- src
 	- pom.xml
+	- README
 	- .git
 	- .gitignore
 	
